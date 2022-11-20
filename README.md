@@ -8,3 +8,5 @@ Contributors:
 * [jshuler24](https://github.com/jshuler24)
 * [ShaneRay-Dev](https://github.com/ShaneRay-Dev)
 * [vpeeta](https://github.com/vpeeta)
+
+- View the wiki [here.](https://github.com/curtis-roy/team-nfi-capstone/wiki)
