@@ -1,0 +1,882 @@
+    1  git clone https://github.com/vpeeta/iea-cohort-08.git
+    2  ls
+    3  ls iea-cohort-08/
+    4  git config user.name
+    5  git config user.email
+    6  git config --global user.name "venkata"
+    7  git config user.name
+    8  git config --global user.email "v.peeta@gmail.com"
+    9  git config user.email
+   10  cd iea-cohort-08/
+   11  ls
+   12  git remote -v
+   13  jupyter notebook 
+   14  man
+   15  who
+   16  passwd
+   17  date
+   18  echo hello
+   19  help touch
+   20  man touch
+   21  top
+   22  touch Venaug122022
+   23  ls
+   24  help mv
+   25  help
+   26  ls
+   27  mv Venaug122022 ~/Documents
+   28  ls
+   29  man mknod
+   30  apropos special
+   31  man file
+   32  an aman
+   33  man man
+   34  echo $path
+   35  ls
+   36  echo $PATH
+   37  type ls
+   38  sudo yum install tree
+   39  ls
+   40  mount
+   41  df -g
+   42  df
+   43  tree
+   44  ls -al /usr
+   45  ls -al /var
+   46  ls -al /proc
+   47  $PATH
+   48  $PATH /hosts
+   49  sudo nano /etc/hosts
+   50  ls
+   51  cat
+   52  cat $Path
+   53  pwd
+   54  vim newfile
+   55  man cat
+   56  ls /proc
+   57  cat cpuinfo
+   58  pwd
+   59  ls /proc
+   60  cd /proc
+   61  pwd
+   62  ls
+   63  cat cpuinfo 
+   64  cat meminfo 
+   65  cat vmstat 
+   66  ls
+   67  cd..
+   68  pwd
+   69  cd ..
+   70  pwd
+   71  ls
+   72  cd /var/log
+   73  ls
+   74  cat lastlog 
+   75  cat cron
+   76  sudo cat cron
+   77  pwd
+   78  cd . .
+   79  pwd
+   80  cd /home/vpeeta
+   81  pwd
+   82  ls
+   83  cd /
+   84  pwd
+   85  ls
+   86  cd /etc
+   87  ls
+   88  cat hosts
+   89  free
+   90  watch free
+   91  cd . .
+   92  pwd
+   93  cd /home/vpeeta
+   94  sudo blkid | grep swap
+   95  ls
+   96  ls blk | grep swap
+   97  lsblk | grep swap
+   98  ls -al /etc/hosts
+   99  type cat
+  100  type grep
+  101  pwd
+  102  who
+  103  cd /
+  104  ls
+  105  cd /etc
+  106  ls
+  107  cd -
+  108  cd
+  109  cd -
+  110  cd
+  111  ls --help
+  112  cd /usr
+  113  ls
+  114  cd /etc
+  115  ls
+  116  cd -
+  117  cd
+  118  cd /home
+  119  ls
+  120  cd
+  121  ls
+  122  cd iea-cohort-08/
+  123  ls
+  124  cd 02_linux_bash_scripting/
+  125  ls
+  126  cd ..
+  127  ~/home
+  128  cd-
+  129  cd
+  130  jupyter notebook
+  131  cd code
+  132  cd -
+  133  pwd
+  134  cd /
+  135  cd code
+  136  cd -
+  137  cd code
+  138  $path
+  139  path
+  140  echo $PATH
+  141  ls -al
+  142  .viminfo
+  143  ls -l
+  144  ls -i
+  145  ls -s
+  146  ls -aisl
+  147  ls -lrt
+  148  ls -t
+  149  man ls
+  150  ls --help
+  151  man ls
+  152  ls
+  153  cp a b c
+  154  cp a b c demo
+  155  mkdir demo
+  156  cp a b c demo
+  157  cp a b c /demo
+  158  cp a demo
+  159  touch a
+  160  touch b
+  161  touch c
+  162  ls
+  163  cp a b c demo
+  164  cd demo
+  165  ls
+  166  mv a x
+  167  ls
+  168  cd ~
+  169  ls
+  170  mkdir stuff
+  171  cd demo
+  172  cp b c ~/stuff
+  173  cd stuff
+  174  cd ~/stuff
+  175  ls
+  176  cd ~
+  177  man diff
+  178  ls
+  179  rm stuff
+  180  rmdir ~/stuff
+  181  man rm
+  182  rm -rf ~/stuff
+  183  cd ~/stuff
+  184  ls
+  185  cd iea-cohort-08/
+  186  ls
+  187  cd 02_linux_bash_scripting/
+  188  ls
+  189  cd ~
+  190  ls
+  191  touch -d"last month" newfile
+  192  ls
+  193  ls -al
+  194  nono
+  195  nano
+  196  man nano
+  197  yum search nano
+  198  yum install nano
+  199  Sudio yum install nano
+  200  Sudo Sudio yum install nano
+  201  sudo  yum install nano
+  202  nano peom
+  203  ls
+  204  vim links
+  205  ls 
+  206  cd iea-cohort-08/
+  207  ls
+  208   cd 02_linux_bash_scripting/
+  209  ls
+  210  cd linux-files
+  211  ls
+  212  ls *.txt
+  213  ls -*
+  214  ls
+  215  ls *-*
+  216  ls [!aeiou]???
+  217  ls *.txt
+  218  ls ???.txt
+  219  ls *.?a?
+  220  ls [!aeiou][!aeiou][!aeiou]
+  221  grep zzz poem
+  222  echo $?
+  223  grep undergrowth poem
+  224  cat non-exisent-file
+  225  cat non-existent-file
+  226  rm -f non-existent-file
+  227  ls
+  228  echo $?
+  229  echo -verbose
+  230  echo $? verbose
+  231  date
+  232  ls
+  233  cd demos
+  234  cd demos/
+  235  cd . . 
+  236  ls
+  237  date > foo
+  238  foo
+  239  cat foo
+  240  cat < foo
+  241  ls
+  242  cat < foo > foo
+  243  cat foo
+  244  >filename
+  245  ls
+  246  sort filename >> filename
+  247  ls
+  248  ls |tee some file
+  249  (date;ls)|wc
+  250  echo 'ls|wc -l" >nu
+  251  echo 'ls|wc -l' >nu
+  252  ls
+  253  cat nu
+  254  bash nu
+  255  cat nu
+  256  vim nu
+  257  ps
+  258  proc
+  259  ls /proc
+  260  ls /proc/diskstats 
+  261  cat /proc/diskstats
+  262  cwd
+  263  echo $$
+  264  man sort
+  265  man sed
+  266  man tr
+  267  head
+  268  man head
+  269  head --help
+  270  sort -n num
+  271  sort -rn num
+  272  sort num
+  273  grep 10 num; echo $? (cf. -q)
+  274  grep -c 1 numn
+  275  grep -c 1 num
+  276  grep -v 1 num
+  277  grep foo num
+  278  grep foo num; echo $? (cf. -s)
+  279  grep foo num; echo $? 
+  280  ls -d */
+  281  ls -l |grep '^d'
+  282  ls -l |egrep '^d'
+  283  l -al | grep '^-'
+  284  ls -al |grep '^-'
+  285  ls -F |grep /
+  286  ls |grep /
+  287  man ls
+  288  ls -d *
+  289  ls -d */
+  290  man ls
+  291  ls *
+  292  ls -d */
+  293  ls -d *.*
+  294  man grep
+  295  ls -IaS|sort -nr -K6
+  296  ls -IaS|sort -nr -k6
+  297  ls -l | sort 
+  298  ls -l | sort -n
+  299  ls -l | sort -n -k
+  300  ls -l | sort -n -k 6
+  301  ls
+  302  Grep -P 
+  303  Grep -P '[^a-zA-Z]' hamlet.txt
+  304  grep -P
+  305  grep -P '[^a-zA-Z]' hamlet.txt
+  306  grep -P '[^a-zA-Z]' hamlet.txt |wc -l
+  307  grep -P '[go,stop]' hamlet.txt
+  308  grep -P '\. [\s]+' hamlet.txt
+  309  grep -oP '(\d{1,3}\.){3}\d{1,3}'
+  310  man sed
+  311  ps -efw
+  312  awk '[print $2}' <poem
+  313  awk '[print $2}' < poem
+  314  awk '{print $2}' < poem
+  315  ls
+  316  ls -l |awk '{print $2}'
+  317  ls -l |awk '{print $6}'
+  318  man awk
+  319  set |grep name
+  320  ls
+  321  cd /
+  322  ls
+  323  cd ~
+  324  ls
+  325  pwd
+  326  less .bash
+  327  test -f da: echo $?
+  328  test -f da;  echo $?
+  329  man test
+  330  ls
+  331  touch testfile
+  332  touch filecheck
+  333  cat filecheck
+  334  ls
+  335  vi filecheck
+  336  ./filecheck
+  337  ls
+  338  sudo ./filecheck
+  339  bash filecheck newfile
+  340  ls
+  341  touch file_check.sh
+  342  vi file_check.sh
+  343  ./file_check.sh
+  344  bash file_check.sh
+  345  ls
+  346  man test
+  347  ls -al
+  348  unmask
+  349  mask
+  350  umask
+  351  mask umask
+  352  man umask
+  353  find . -type f -name "*.py"
+  354  ls
+  355  cd iea-cohort-08/
+  356  find . -type f -name "*.py"
+  357  sudo /etc/shadow
+  358  git config --list
+  359  man git-config
+  360  cd ~
+  361  ls
+  362  mkdir myrepo
+  363  cd myrepo
+  364  git init
+  365  echo something >firstfile
+  366  ls
+  367  git add firstfile 
+  368  git commit
+  369  git log
+  370  git commit
+  371  git log
+  372  touch info
+  373  git status
+  374  git add info
+  375  git comit
+  376  git commit
+  377  mv info outfo
+  378  git status
+  379  git add .
+  380  git status
+  381  git mv outfo info
+  382  git status
+  383  git rm outfo
+  384  git status
+  385  git show
+  386  rm outfo
+  387  ls
+  388  git branch
+  389  git branch promo
+  390  git branch
+  391  man branch
+  392  man git-branch
+  393  git log
+  394  git branch testing
+  395  ls
+  396  git log --graph
+  397  man git-log
+  398  git branch
+  399  git branch hotfix
+  400  git log --decorate --online
+  401  git log --decorate --oneline
+  402  git checout testing
+  403  git checkout testing
+  404  git add >>test1 && git commit
+  405  git status
+  406  cat test1
+  407  git add test1
+  408  git status
+  409  git checkout hotfix
+  410  gi add hotfix1 && git commit
+  411  git add hotfix1 && git commit
+  412  ls
+  413  cd iea-cohort-08/
+  414  ls
+  415  cd 02_linux_bash_scripting/
+  416  ls
+  417  ./linux_and_bash.ipynb
+  418  jupyter notebook
+  419  ls
+  420  cd iea-cohort-08/
+  421  jupyter notebook
+  422  python --version
+  423  python -v
+  424  sudo tar -xzf jetbrains-toolbox-1.17.7391.tar.gz -C /opt
+  425  sudo snap install [pycharm-professional|pycharm-community] --classic
+  426  git status
+  427  cd iea-cohort-08/
+  428  git status
+  429  ls
+  430  git branch
+  431  git checkout main
+  432  git status
+  433  git remote -v
+  434  git remote add upstream https://github.com/redrivet/iea-cohort-08.git
+  435  git remote -v
+  436  git pull upstream main
+  437  git status
+  438  ls
+  439  pip install pylint
+  440  sudo pip install pylint
+  441  cd ~
+  442  ls
+  443  cd Downloads/
+  444  ls
+  445  sudo apt install ./code_1.71.2-1663191218_amd64.deb
+  446  sudo apt-get install wget gpg
+  447  cd..
+  448  cd . .
+  449  ls
+  450  cd -
+  451  sudo apt-get install wget gpg
+  452  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+  453  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+  454  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+  455  rm -f packages.microsoft.gpg
+  456  sudo apt-get install wget gpg
+  457  sudoapt-get update
+  458  sudo apt-get update
+  459  su - root
+  460  @Bapatla79
+  461  /usr/bin/python3 /home/vpeeta/Documents/pythoncode/Script1.py
+  462  /usr/bin/python3 -m pip install -U pylint --user
+  463  /usr/bin/python3 /home/vpeeta/Documents/pythoncode/Script1.py
+  464  git
+  465  git show
+  466  git fetch
+  467  echo $path
+  468  sudo yum install tree
+  469  history
+  470  history >>hit_comand.txt
+  471  ls
+  472  tree
+  473  ls
+  474  cd iea-cohort-08/
+  475  gitk
+  476  git status
+  477  gitk --all --decorate
+  478  ls
+  479  cd iea-cohort-08/
+  480  ls
+  481  Jupyter notebook
+  482  cd 02_linux_bash_scripting/
+  483  Jupyter notebook
+  484  ls
+  485  linux_and_bash.ipynb
+  486  cd..
+  487  cd ~
+  488  ls
+  489  jupyter notebook
+  490  python --version
+  491  yum search jupyter
+  492  cd iea-cohort-08/
+  493  yum search jupyter
+  494  yum serach pycharm
+  495  chmod +x script.py
+  496  cd ~/documents
+  497  ls
+  498  cd 05_python_for_devops/
+  499  ls
+  500  cd pythoncode/
+  501  chmod +x script.py
+  502  ls
+  503  chmod +x script1.py
+  504  chmod +x Script1.py
+  505  ./Script1.py
+  506  git status
+  507  ls
+  508  cd myrepo
+  509  ls
+  510  cd iea-cohort-08/
+  511  jupyter notebook
+  512  cd iea-cohort-08/
+  513  jupyter notebook
+  514  cd ~/temp
+  515  cat /tmp/numbers.txt
+  516  cat /tmp/numbers.txt.reversed
+  517  cat /tmp/numbers.txt
+  518  ls
+  519  cd iea-cohort-08/
+  520  ls
+  521  yum search pycharm
+  522  cd ~
+  523  ls
+  524  cd Downloads
+  525  sudo tar -zxf pycharm-community-2022.2.2.tar.gz /opt
+  526  sudo tar -zxf pycharm-community-2022.2.2.tar.gz -C /opt/
+  527  cd /opt/pycharm-community-2022.2.2/bin
+  528  sh pycharm.sh
+  529  yum install curl
+  530  ls
+  531  cd iea-cohort-08/
+  532  ls
+  533  jupiter notebook
+  534  jupyter notebook
+  535  pip install requests
+  536  pip install --upgrade pip
+  537  cd iea-cohort-08/
+  538  git status
+  539  git branch
+  540  tree
+  541  git log -p
+  542  python3
+  543  ls
+  544  cd iea-cohort-08/
+  545  help curl
+  546  curl
+  547  sudo yum install curl
+  548  curl -v http://www.rubrik.com
+  549  curl -v https://www.rubrik.com
+  550  man curl
+  551  curl Location: http://www.google.com
+  552  ls
+  553  cd iea-cohort-08/
+  554  jupyter notebook
+  555  ls
+  556  mkdie demo
+  557  mkdir demo
+  558  mkdir demo2
+  559  cd demo2
+  560  Python3 -m venv ansible_demo
+  561  cd..
+  562  cd . .
+  563  ~
+  564  ls
+  565  cd .
+  566  ls
+  567  cd . .
+  568  cd~
+  569  cd ~
+  570  ls
+  571  cd iea-cohort-08/
+  572  ls
+  573  cd 08_ansible/
+  574  ls
+  575  cd labs
+  576  ls
+  577  vim ~/.ssh/config
+  578  sudo easy_install pip
+  579  pip install --user ansible==2.8.3
+  580  pip install --upgrade pip
+  581  wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  582  sudo rpm -ivh epel-release-latest-7.noarch.rpm
+  583  sudo yum install sshpass
+  584  ssh ubantu@35.231.247.29 "echo success"
+  585  ssh ubuntu@35.231.247.29 "echo success"
+  586  touch hosts
+  587  ls
+  588  vim hosts
+  589  touch db
+  590  touch web
+  591  vim db
+  592  vim web
+  593  vim hosts
+  594  vim ~/.ansible.cfg
+  595  ansible all -i hosts -m ping
+  596  ansible all -i hosts -m "apt" -a "name=apache2 state=present" -b
+  597  ansible all -i hosts -m "apt" -a "name=apache2 state=absent" -b
+  598  python3 -m pip -V
+  599  ansible --version
+  600  python3 -m pip show ansible
+  601  pip install --user yaml-lint
+  602  sudo pip install --upgrade pip
+  603  pip install --user yamllint
+  604  pip install --user jinja2-cli
+  605  mkdir ~/yaml-lab
+  606  cd ~/yaml-lab
+  607  vim leo.yaml
+  608  yamllint leo.yaml
+  609  vim leo.yaml
+  610  yamllint leo.yaml
+  611  vim leo.yaml
+  612  yamllint leo.yaml
+  613  vim leo.yaml
+  614  yamllint leo.yaml
+  615  vim leo.yaml
+  616  yamllint leo.yaml
+  617  vim leo.yaml
+  618  yamllint leo.yaml
+  619  vim leo.yaml
+  620  yamllint leo.yaml
+  621  cp leo.yml tmnt.yml.j2
+  622  ls
+  623  cp leo.yaml tmnt.yml.j2
+  624  ls
+  625  vim tmnt.yml.j2
+  626  inja2 tmnt.yml.j2 -D name=donatello -D nickname=donnie -D color=purple -D primary_weapon=staff
+  627  jinja2 tmnt.yml.j2 -D name=donatello -D nickname=donnie -D color=purple -D primary_weapon=staff
+  628  vim tmnt.yml.j2
+  629  jinja2 tmnt.yml.j2 -D name=donatello -D nickname=donnie -D color=purple -D primary_weapon=staff
+  630  jinja2 tmnt.yml.j2 -D name=donatello -D nickname=donnie -D color=purple -D primary_weapon=staff && jinja2 tmnt.yml.j2 -D name=leonardo -D nickname=leo -D color=blue -D primary_weapon=sword && jinja2 tmnt.yml.j2 -D name=raphael -D nickname=raph -D color=red -D primary_weapon=sai && jinja2 tmnt.yml.j2 -D name=michaelangelo -D nickname=mikey -D color=orange -D primary_weapon=nunchucks
+  631  vim tmnt.yml.j2
+  632  jinja2 tmnt.yml.j2 -D name=donatello -D nickname=donnie -D color=purple -D primary_weapon=staff && jinja2 tmnt.yml.j2 -D name=leonardo -D nickname=leo -D color=blue -D primary_weapon=sword && jinja2 tmnt.yml.j2 -D name=raphael -D nickname=raph -D color=red -D primary_weapon=sai && jinja2 tmnt.yml.j2 -D name=michaelangelo -D nickname=mikey -D color=orange -D primary_weapon=nunchucks
+  633  ls
+  634  jinja2 tmnt.yml.j2 -D name=donatello -D nickname=donnie -D color=purple -D primary_weapon=staff
+  635  vim tmnt.yml.j2
+  636  jinja2 tmnt.yml.j2 -D name=donatello -D nickname=donnie -D color=purple -D primary_weapon=staff
+  637  ls
+  638  cd iea-cohort-08/
+  639  git satus
+  640  git status
+  641  git pull upstream
+  642  get remote -v
+  643  git remote -v
+  644  git pull upstream main
+  645  git checkout --ours 06_rest/example.db
+  646  git status
+  647  git add 06_rest/example.db
+  648  git commit
+  649  git pull upstream main
+  650  git config pull.rebase false  # merge
+  651  git pull upstream main
+  652  git checkout --ours 06_rest/example.db
+  653  git add 06_rest/example.db
+  654  git commit
+  655  ls
+  656  git status
+  657  git add .
+  658  git commit
+  659  git status
+  660  git push
+  661  history >>history_10_3_2022
+  662  netstat -ab
+  663  scp man
+  664  man scp
+  665  ssh-keygen
+  666  ls -al ~/.ssh
+  667  ls
+  668  cd iea-cohort-08/
+  669  git status
+  670  git fetch origin
+  671  git pull origin main
+  672  git status
+  673  git add *
+  674  git commit
+  675  git status
+  676  git origin fetch
+  677  git clone
+  678  git clone main
+  679  git clone origin/main
+  680  git origin fetch
+  681  git status
+  682  git branch
+  683  ls
+  684  git remote -v
+  685  git pull upstream main
+  686  git status
+  687  git commit
+  688  git merge upstream/main
+  689  ls
+  690  git fetch
+  691  git fetch upstream
+  692  git branch -d main
+  693  git log 
+  694  git log --graph
+  695  mv ~/Downloads/atlassian-bamboo-9.0.1.tar.gz /tmp/
+  696  sudo mkdir -p /var/bamboo/bamboo-home
+  697  sudo useradd --create-home -c "Bamboo role account" bamboo
+  698  sudo mkdir -p /opt/atlassian/bamboo
+  699  sudo chown bamboo:  /opt/atlassian/bamboo
+  700  sudo chown bamboo:  /var/bamboo/bamboo-home
+  701  sudo su - bamboo
+  702  sudo vim /etc/systemd/system/bamboo.service
+  703  Sudo systemctl enable bamboo.service
+  704  Sudo systemctl status bamboo.service
+  705  sudo systemctl enable bamboo.service
+  706  sudo systemctl start bamboo.service
+  707  sudo systemctl status bamboo.service
+  708  history >>labbamboo
+  709  ls
+  710  history
+  711  cd iea-cohort-08/
+  712  history >>labbamboo
+  713  ls
+  714  pip3 --version
+  715  pip3 install --upgrade
+  716  groups
+  717  docker image ls
+  718  sudo usermod -aG docker "CORP\vpeeta"
+  719  groups
+  720  newgrp docker
+  721  groups
+  722  docker image ls
+  723  docker --help
+  724  docker ls
+  725  sudo vim /etc/docker/daemon.json
+  726  sudo service docker restart
+  727  sudo service docker status
+  728  mkdir ~/containerize
+  729  cd ~/containerize
+  730  vim app.py
+  731  vi app.py 
+  732  del app.py 
+  733  rm app.py 
+  734  ls
+  735  vim app.py
+  736  vim vars.ini
+  737  pip3 install --user Flask
+  738  python3 app.py
+  739  cat app.log
+  740  vi app.py
+  741  python3 app.py
+  742  vi app.py
+  743  rm app.py
+  744  ls
+  745  vim app.py
+  746  ls
+  747  rm app.py
+  748  vim app.py
+  749  vim dockerfile
+  750  vim FROM python:3.8-alpine
+  751  ls
+  752  vim requirements.txt
+  753  python3 app.py
+  754  ls
+  755  ps -efw |grep docker
+  756  cd iea-cohort-08/
+  757  docter container ls
+  758  docker container ls
+  759  ls
+  760  cd. .
+  761  cd . .
+  762  ls
+  763  cd ./~
+  764  cd ~
+  765  ls
+  766  cd containerize/
+  767  ls
+  768  docker compose version
+  769  run apt-get -y update
+  770  sudo apt update
+  771  sudo apt install busybox
+  772  ls
+  773  cd iea-cohort-08/
+  774  docker pull busybox
+  775  ip a
+  776  docker network inspect
+  777  sudo iptable --list
+  778  docker network ls
+  779  docker container ls
+  780  docker run -dit --name alpine1 alpine ash
+  781  docker container ls
+  782  docker run -dit --name alpine2 alpine ash
+  783  docker container ls
+  784  docker network inspect bridge
+  785  docker attach alpine1
+  786  docker container stop alpine1 alpine2
+  787  docker container rm alpine1 alpine2
+  788  docker container ls
+  789  docker network create --driver bridge alpine-net
+  790  docker network ls
+  791  docker network inspect alpine-net
+  792  docker run -dit --name alpine1 --network alpine-net alpine ash
+  793  docker run -dit --name alpine2 --network alpine-net alpine ash
+  794  docker run -dit --name alpine3 alpine ash
+  795  docker run -dit --name alpine4 --network alpine-net alpine ash
+  796  docker network connect bridge alpine4
+  797  docker container ls
+  798  docker network inspect bridge
+  799  docker network inspect alpine-net
+  800  docker container attach alpine1
+  801  docker container attach alpine3
+  802  /proc
+  803  docker history
+  804  docker stats
+  805  docker container logs --details
+  806  docker container logs
+  807  docker container logs --details alphine1
+  808  docker container ls
+  809  docker container logs --details alpine1
+  810  docker container attach alpine3
+  811  kubectl --help
+  812  sudo service ssh status
+  813  sudo apt-get install nano
+  814  ls
+  815  cd iea-cohort-08/
+  816  sudo service ssh status
+  817  ssh 
+  818  ssh ubuntu@35.231.247.29  -pfoldoink
+  819  ssh ubuntu@35.231.247.29
+  820  export IP = 35.185.41.253
+  821  export IP=35.185.41.253
+  822  while true; do date +%T; curl http://$IP; sleep 5; done
+  823  watch -n1 http://35.185.41.253
+  824  watch -n1 curl http://35.185.41.253
+  825  ls
+  826  cd iea-cohort-08/
+  827  git status
+  828  git pull origin/main
+  829  git pull origin main
+  830  ld
+  831  ls
+  832  git add *
+  833  git commit
+  834  git status
+  835  git checkout main
+  836  git pull origin main
+  837  git status
+  838  git fetch origin main
+  839  git fetch --all
+  840  git merge --all
+  841  git status
+  842  ls
+  843  git remove -v
+  844  git remote -v
+  845  Git pull upstream main
+  846  git pull upstream main
+  847  ls
+  848  cubectl --help
+  849  kubectl --help
+  850  kubectl -h
+  851  ssh ubuntu@35.231.247.29 "echo success"
+  852  ssh ubuntu@104.196.210.153
+  853  kubectl delete all --all
+  854  ssh ubuntu@104.196.210.153
+  855  git pull upstream main
+  856  git status
+  857  ls
+  858  cd iea-cohort-08/
+  859  git pull upstream main
+  860  pip freeze
+  861  pip install boto3
+  862  pip install --upgrade 22.3.1
+  863  pip install --upgrade pip
+  864  ls
+  865  cd team-nfi-capstone/
+  866  ls
+  867  git branch
+  868  git status
+  869  git pull origin main
+  870  git status
+  871  git push origin main
+  872  ls -al ~/.ssh
+  873  ssh-keygen -t ed255519 -C "v.peeta@gmail.com"
+  874  ssh-keygen -t ed25519 -C "v.peeta@gmail.com"
+  875  ls -al ~/.ssh
+  876  cat id_ed25519.pub
+  877  cat id_ed25519
+  878  pwd
+  879  cat ~/id_ed25519.pub
+  880  cat /home/vpeeta/.ssh/id_ed25519.pub
+  881  git push origin main
+  882  history >>history_11_28
