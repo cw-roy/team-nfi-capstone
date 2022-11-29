@@ -1,32 +1,40 @@
-"""
-Python client for Wordpress
-Utilizing the RESTful API provided by Wordpress (docs), write a python CLI tool to read and write blog posts. 
-a) Read configuration from the following ENV variables
-	WORDPRESS_USERNAME
-	WORDPRESS_PASSWORD
-	WORDPRESS_URL
-	b) Unit tests
-⦁	Ensure you unit test as many code paths as you can.
-⦁	Include error handling for if the Wordpress API is unavailable or incorrect credentials are provided.
-	c) Containerized
-⦁	Your CLI tool should be able to run on any machine running docker via a docker container. 
-⦁	NOTE, a docker container cannot access files on the host machine, so "upload -f <filename>" may need to be tweaked.  See “CLI Detailed Requirements” below.
-
-Required Functions
-⦁	Show latest blog post
-⦁	Upload a blog post
-Example Usage
-python3 pyblog.py <command> [options]
-
-python3 pyblog.py read
-	- Outputs the contents of the latest blog post to stdout
-
-python3 pyblog.py upload -f <filename or - >
-	- Uploads the contents of the specified file as a new blog post
-	- Uses the current time for the post
-	- Format of the post file is as follows	
-	- NOTE: The literal character '-' as the filename signifies reading file contents from stdin instead of opening a file
-"""
+import requests
+import datetime
+import argparse
+import json
+import sys
+import os
+import pprint
+from requests.auth import HTTPBasicAuth
 
 
+currenttime = datetime.datetime.now()
+blog_timestamp = datetime.datetime.now().strftime("%c")
 
+# setup auth from env
+
+wp_user = "retrieve from elsewhere"
+wp_pass = "retrieve from elsewehre"
+wp_site = "{wordpress url goes here}"
+
+# Generate the CLI argmuments
+
+# basic arg parse setup
+cli_parse = argparse.ArgumentParser(
+    prog = 'WordPress CLI',
+    description= "interact with the wp API",
+    epilog= 'Thank you for coming to my Ted Talk!')
+
+# -f , --File to identify a file to be uploaded to WP Blog
+# "-" the character "-" to read from stdin
+
+
+cli_parse.add_argument(
+    'filename',
+    help="Please choose a filepath. ex: c:/users/document.txt")
+args = cli_parse.parse_args()
+
+with open(args.filename, "r") as file:
+    title = file.readlines()[0]
+    
+    print(title)
