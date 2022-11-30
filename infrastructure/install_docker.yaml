@@ -1,0 +1,71 @@
+---
+- hosts: infra
+  remote_user: ubuntu
+  become: true
+  tasks:
+    - name: Install dependencies
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: latest
+        update_cache: true
+      loop:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - lsb-release
+        - gnupg
+        - software-properties-common
+        - python3-pip
+        - virtualenv
+        - python3-setuptools
+    - name: Add GPG key
+      ansible.builtin.apt_key:
+        url: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
+        state: present
+    - name: Add docker repository to sources
+      ansible.builtin.apt_repository:
+        repo: "deb [arch={{ ansible_architecture }}] https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable"
+        state: present
+        filename:  docker
+    - name: Install docker-ce
+      ansible.builtin.apt:
+        name: "docker-ce"
+        state: latest
+        update_cache: true
+    # - name: Install docker-ce
+    #   ansible.builtin.apt:
+    #     name: "{{ item }}"
+    #     state: latest
+    #     update_cache: true
+    #   loop:
+    #     - docker-ce
+    #     - docker-ce-cli
+    #     - containerd.io
+    #     - docker-compose-plugin
+    - name: Confirm that docker is active
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+    - name: Ensure docker group exists
+      ansible.builtin.group:
+        name: docker
+        state: present
+    - name: Add user ubuntu to docker group
+      ansible.builtin.user:
+        name: ubuntu
+        groups: docker
+        append: true
+    - name: Install docker-compose
+      ansible.builtin.get_url:
+        url: "https://github.com/docker/compose/releases/download/v2.13.0/docker-compose-linux-aarch64"
+        dest: /usr/local/bin/docker-compose
+        mode: 'u+x,g+x'
+    - name: Change file ownership, group and permissions
+      ansible.builtin.file:
+        path: /usr/local/bin/docker-compose
+        owner: ubuntu
+        group: ubuntu
+    - name: Install Docker Module for Python
+      ansible.builtin.pip:
+        name: docker
