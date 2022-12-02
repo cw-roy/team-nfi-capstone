@@ -1,0 +1,17 @@
+---
+- name: Create a container for bamboo
+  hosts: infra
+  become: yes
+  tasks:
+    - name: Start docker container for bamboo
+      community.docker.docker_container:
+        name: bamboo
+        image: jrrickerson/capstone-bamboo
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - /mnt/bamboo:/var/atlassian/application-data/bamboo
+        groups:
+          - docker
+        ports:
+          - "54663:54663"
+          - "8085:8085"
