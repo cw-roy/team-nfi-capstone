@@ -1,32 +1,74 @@
-"""
-Python client for Wordpress
-Utilizing the RESTful API provided by Wordpress (docs), write a python CLI tool to read and write blog posts. 
-a) Read configuration from the following ENV variables
-	WORDPRESS_USERNAME
-	WORDPRESS_PASSWORD
-	WORDPRESS_URL
-	b) Unit tests
-⦁	Ensure you unit test as many code paths as you can.
-⦁	Include error handling for if the Wordpress API is unavailable or incorrect credentials are provided.
-	c) Containerized
-⦁	Your CLI tool should be able to run on any machine running docker via a docker container. 
-⦁	NOTE, a docker container cannot access files on the host machine, so "upload -f <filename>" may need to be tweaked.  See “CLI Detailed Requirements” below.
+import requests
+import datetime
+import argparse
+import json
+import sys
+import os
+import pprint
+from requests.auth import HTTPBasicAuth
 
-Required Functions
-⦁	Show latest blog post
-⦁	Upload a blog post
-Example Usage
-python3 pyblog.py <command> [options]
+currenttime = datetime.datetime.now()
+blog_timestamp = datetime.datetime.now().strftime("%c")
 
-python3 pyblog.py read
-	- Outputs the contents of the latest blog post to stdout
+# setup auth from env
 
-python3 pyblog.py upload -f <filename or - >
-	- Uploads the contents of the specified file as a new blog post
-	- Uses the current time for the post
-	- Format of the post file is as follows	
-	- NOTE: The literal character '-' as the filename signifies reading file contents from stdin instead of opening a file
-"""
+wp_user = "nfi_wordpress" #stone in an env
+wp_pass = "nfi_wordpass" #store in an env 
+wp_site = "wp site address here"
+
+#  
+# API auth goes here
+# r = request.get(wp_site)
+#
+
+#Build ArgPrase
+
+cli_parser = argparse.ArgumentParser(
+    prog = 'WordPress CLI',
+    description= "Interact with the Wordpress API",
+    epilog= 'Thank you for coming to my Ted Talk!')
+
+cli_parser.add_argument('command', type=str)
+cli_parser.add_argument(
+    '-f',
+    '--file',
+    help="Intentionally left blank."
+    )
+cli_parser.add_argument(
+    'text_input',
+    nargs='?',
+    type=str,
+    default="-",
+    help="Intentionally left blank."
+    )
+
+args = cli_parser.parse_args()
+
+def blog_upload():
+    input_file = args.file or args.text_input
+    if input_file == "-":
+        file = sys.stdin
+    else:
+        file = open(input_file)
+
+    contents = file.read()
+    contents = contents.splitlines()
+    title = contents[0]
+    body = "\n".join(contents[1:])
+    print(title)
+    print(body)
+    file.close()
 
 
+def blog_read():
+    print("this is where we will pull from the API and read the lastest blog")
+    #need to define api calls here
+    #need to pull in post and print it likly with pprint or json
 
+
+if args.command == "upload":
+    print("Looking to upload a file")
+    blog_upload()
+if args.command == "read":
+    blog_read()
+    
