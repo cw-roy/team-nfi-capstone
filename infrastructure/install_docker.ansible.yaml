@@ -21,6 +21,11 @@
         name: docker
         state: started
         enabled: true
+    - name: Install docker-compose
+      ansible.builtin.pip:
+        name:
+          - docker
+          - docker-compose
     - name: Ensure docker group exists
       ansible.builtin.group:
         name: docker
@@ -30,11 +35,10 @@
         name: ubuntu
         groups: docker
         append: true
-    - name: Install docker-compose
-      ansible.builtin.get_url:
-        url: "https://github.com/docker/compose/releases/download/v2.13.0/docker-compose-linux-x86_64"
-        dest: /usr/local/bin/docker-compose
-        mode: 'u+x,g+x'
+      # ansible.builtin.get_url:
+        # url: "https://github.com/docker/compose/releases/download/v2.13.0/docker-compose-linux-x86_64"
+        # dest: /usr/local/bin/docker-compose
+        # mode: 'u+x,g+x'
     - name: Change file ownership, group and permissions
       ansible.builtin.file:
         path: /usr/local/bin/docker-compose
