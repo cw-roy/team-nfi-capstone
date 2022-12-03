@@ -1,5 +1,5 @@
 ---
-- name: Create a container for bamboo
+- name: Create a Docker container for Bamboo
   hosts: infra
   become: yes
   tasks:
@@ -7,6 +7,7 @@
       community.docker.docker_container:
         name: bamboo
         image: jrrickerson/capstone-bamboo
+        state: started
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - /mnt/bamboo:/var/atlassian/application-data/bamboo
