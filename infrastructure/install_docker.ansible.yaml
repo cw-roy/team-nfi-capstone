@@ -8,7 +8,6 @@
         state: present
         update_cache: true
       loop:
-        - apt-transport-https
         - python3-pip
         - virtualenv
         - python3-setuptools
@@ -26,6 +25,7 @@
         name:
           - docker
           - docker-compose
+        state: present
     - name: Ensure docker group exists
       ansible.builtin.group:
         name: docker
@@ -35,16 +35,8 @@
         name: ubuntu
         groups: docker
         append: true
-      # ansible.builtin.get_url:
-        # url: "https://github.com/docker/compose/releases/download/v2.13.0/docker-compose-linux-x86_64"
-        # dest: /usr/local/bin/docker-compose
-        # mode: 'u+x,g+x'
     - name: Change file ownership, group and permissions
       ansible.builtin.file:
         path: /usr/local/bin/docker-compose
         owner: ubuntu
         group: ubuntu
-    - name: Install Docker Module for Python
-      ansible.builtin.pip:
-        name: docker
-
