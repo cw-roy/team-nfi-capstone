@@ -12,6 +12,10 @@ blog_timestamp = datetime.datetime.now().strftime("%c")
 
 # setup auth from env
 
+
+
+### THIS IS AN UPDATE TO THE PYBLOG.PY FILE - USED TO TEST THE MANUAL PIPELINE FOR BAMBOO
+
 wp_user = "nfi_wordpress" #stone in an env
 wp_pass = "nfi_wordpass" #store in an env 
 wp_site = "wp site address here"
@@ -44,13 +48,7 @@ cli_parser.add_argument(
 
 args = cli_parser.parse_args()
 
-def blog_upload():
-    input_file = args.file or args.text_input
-    if input_file == "-":
-        file = sys.stdin
-    else:
-        file = open(input_file)
-
+def format_blog(file):
     contents = file.read()
     contents = contents.splitlines()
     title = contents[0]
@@ -59,6 +57,18 @@ def blog_upload():
     print(body)
     file.close()
 
+
+# read from stdin - i
+
+def blog_upload():
+    cli_input = args.file or args.text_input
+    if cli_input == "-":
+        file = sys.stdin
+        format_blog(file)
+
+    else:
+        file = open(cli_input)
+        format_blog(file)
 
 def blog_read():
     print("this is where we will pull from the API and read the lastest blog")
@@ -71,4 +81,3 @@ if args.command == "upload":
     blog_upload()
 if args.command == "read":
     blog_read()
-    
