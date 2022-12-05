@@ -17,7 +17,7 @@
         restart_policy: always
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
-          - /mnt/bamboo:/var/atlassian/application-data/bamboo
+          - bambooVolume:/var/atlassian/application-data/bamboo
         groups:
           - docker
         ports:
