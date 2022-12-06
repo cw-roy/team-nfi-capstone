@@ -1,48 +1,30 @@
+version: '3'
 services:
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: ${DB_RPASS}
+       MYSQL_DATABASE: ${DB_DB}
+       MYSQL_USER: ${DB_USER}
+       MYSQL_PASSWORD: ${DB_PASS}
 
-  wordpress:
-    depends_on:
-      - db
-    image: wordpress:latest
-    ports:
-      - 8088:80
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: exampleuser
-      WORDPRESS_DB_PASSWORD: examplepass
-      WORDPRESS_DB_NAME: exampledb
-    # logging:
-    #   driver: splunk
-    #   options:
-    #     splunk-format: "json"
-    #     splunk-insecureskipverify: "true"
-    #     splunk-source: "app"
-    #     splunk-token: "37a1d361-2114-400b-a0c7-3c84ddd3074d"
-    #     splunk-url: "https://prd-p-s74ir.splunkcloud.com:8088"
-    #     tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-    volumes:
-      - wp_data:/var/www/html
-
-  db:
-    image: mysql:5.7.40
-    environment:
-      MYSQL_DATABASE: exampledb
-      MYSQL_USER: exampleuser
-      MYSQL_PASSWORD: examplepass
-    # logging:
-    #   driver: splunk
-    #   options:
-    #     splunk-format: "json"
-    #     splunk-insecureskipverify: "true"
-    #     splunk-source: "app"
-    #     splunk-token: "37a1d361-2114-400b-a0c7-3c84ddd3074d"
-    #     splunk-url: "https://prd-p-s74ir.splunkcloud.com:8088"
-    #     tag: "{{.ImageName}}/{{.Name}}/{{.ID}}"
-    # volumes:
-    #   - type: bind
-    #     source: /mnt/sql
-    #     target: /var/lib/mysql
-
+   wordpress:
+     depends_on:
+       - db
+     image: wordpress:latest
+     ports:
+       - "8088:80"
+     restart: always
+     volumes:
+       - wp_html:/var/www/html
+     environment:
+       WORDPRESS_DB_HOST: ${WP_HOST}
+       WORDPRESS_DB_USER: ${WP_USER}
+       WORDPRESS_DB_PASSWORD: ${WP_PASS}
+       WORDPRESS_DB_NAME: ${WP_DBNAME}
 volumes:
-  wordpress:
-  db:
+    db_data: {}
+    wp_html: {}
