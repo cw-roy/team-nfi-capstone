@@ -13,7 +13,7 @@ Resources:
             VolumeSize: 100
       Tags:
         - Key: IEAteam
-          Value: NFI
+          Value: Team-NFI
 
         - Key: course
           Value: IEA
@@ -37,7 +37,7 @@ Resources:
             VolumeSize: 30
       Tags:
         - Key: IEAteam
-          Value: NFI
+          Value: Team-NFI
 
         - Key: course
           Value: IEA
@@ -61,7 +61,7 @@ Resources:
             VolumeSize: 30
       Tags:
         - Key: IEAteam
-          Value: NFI
+          Value: Team-NFI
 
         - Key: course
           Value: IEA
