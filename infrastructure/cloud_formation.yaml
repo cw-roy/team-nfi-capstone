@@ -126,6 +126,10 @@ Resources:
           ToPort: 8085
           CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
+          FromPort: 8088
+          ToPort: 8088
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
           FromPort: 9997
           ToPort: 9997
           CidrIp: 0.0.0.0/0
@@ -166,6 +170,10 @@ Resources:
         - IpProtocol: tcp
           FromPort: 8000
           ToPort: 8000
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8085
+          ToPort: 8085
           CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
           FromPort: 8088
@@ -212,6 +220,10 @@ Resources:
         - IpProtocol: tcp
           FromPort: 8000
           ToPort: 8000
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8085
+          ToPort: 8085
           CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
           FromPort: 8088
