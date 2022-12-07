@@ -2,7 +2,7 @@ Resources:
   NFIinfrastructure:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-0b4577d77dac11b84  # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type 
+      ImageId: ami-0b4577d77dac11b84  # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
       InstanceType: t2.medium
       KeyName: NFI
       SecurityGroupIds:
@@ -10,26 +10,26 @@ Resources:
       BlockDeviceMappings:
         - DeviceName: /dev/sda1
           Ebs:
-            VolumeSize: 30
+            VolumeSize: 100
       Tags:
         - Key: IEAteam
-          Value: NFI
+          Value: Team-NFI
 
         - Key: course
           Value: IEA
-        
+
         - Key: cohort
-          Value: 8
-        
+          Value: "8"
+
         - Key: Name
           Value: NFIInfra
   NFIstaging:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-0b4577d77dac11b84  # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type 
+      ImageId: ami-0b4577d77dac11b84  # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
       InstanceType: t2.micro
       KeyName: NFI
-      SecurityGroupIds: 
+      SecurityGroupIds:
         - !Ref NFIstagingSecurityGroup
       BlockDeviceMappings:
         - DeviceName: /dev/sda1
@@ -37,20 +37,20 @@ Resources:
             VolumeSize: 30
       Tags:
         - Key: IEAteam
-          Value: NFI
-          
+          Value: Team-NFI
+
         - Key: course
           Value: IEA
-        
+
         - Key: cohort
-          Value: 8
-        
+          Value: "8"
+
         - Key: Name
           Value: NFIStaging
   NFIprod:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-0b4577d77dac11b84  # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type 
+      ImageId: ami-0b4577d77dac11b84  # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
       InstanceType: t2.micro
       KeyName: NFI
       SecurityGroupIds:
@@ -61,20 +61,20 @@ Resources:
             VolumeSize: 30
       Tags:
         - Key: IEAteam
-          Value: NFI
+          Value: Team-NFI
 
         - Key: course
           Value: IEA
-        
+
         - Key: cohort
-          Value: 8
-        
+          Value: "8"
+
         - Key: Name
           Value: NFIProd
   NFIinfrastructureSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: NFIInfrastructure 
+      GroupName: NFIInfrastructure
       GroupDescription: "Allow HTTP/HTTPS and SSH inbound and outbound traffic"
       SecurityGroupIngress:
         - IpProtocol: tcp
@@ -125,6 +125,14 @@ Resources:
           FromPort: 8085
           ToPort: 8085
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8088
+          ToPort: 8088
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 9997
+          ToPort: 9997
+          CidrIp: 0.0.0.0/0
   NFIstagingSecurityGroup:
    Type: AWS::EC2::SecurityGroup
    Properties:
@@ -132,14 +140,6 @@ Resources:
      GroupDescription: "Allow HTTP/HTTPS and SSH inbound and outbound traffic"
      SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: 8088
-          ToPort: 8088
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 8000
-          ToPort: 8000
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
           CidrIp: 23.22.14.115/32
@@ -167,6 +167,22 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 174.31.26.222/32
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8085
+          ToPort: 8085
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8088
+          ToPort: 8088
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 9997
+          ToPort: 9997
+          CidrIp: 0.0.0.0/0
   NFIprodSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -174,14 +190,6 @@ Resources:
       GroupDescription: "Allow HTTP/HTTPS and SSH inbound and outbound traffic"
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: 8088
-          ToPort: 8088
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 8000
-          ToPort: 8000
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
           CidrIp: 23.22.14.115/32
@@ -209,3 +217,19 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 174.31.26.222/32
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8085
+          ToPort: 8085
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8088
+          ToPort: 8088
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 9997
+          ToPort: 9997
+          CidrIp: 0.0.0.0/0

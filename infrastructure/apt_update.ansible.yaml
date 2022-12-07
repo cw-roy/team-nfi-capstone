@@ -1,8 +1,0 @@
----
-- hosts: all
-  become: true
-  tasks:
-    - name: Update cache
-      ansible.builtin.apt:
-        update_cache: true
-        upgrade: safe
