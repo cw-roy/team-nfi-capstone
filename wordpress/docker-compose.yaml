@@ -10,6 +10,8 @@ services:
        MYSQL_DATABASE: ${DB_DB}
        MYSQL_USER: ${DB_USER}
        MYSQL_PASSWORD: ${DB_PASS}
+       MYSQL_ALLOW_EMPTY_PASSWORD: ${DB_EMPTY}
+       MYSQL_RANDOM_ROOT_PASSWORD: ${DB_RANDOM}
 
    wordpress:
      depends_on:
