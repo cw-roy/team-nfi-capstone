@@ -20,6 +20,7 @@
           - bambooVolume:/var/atlassian/application-data/bamboo
         groups:
           - docker
+          - 115
         ports:
           - "54663:54663"
           - "8085:8085"
