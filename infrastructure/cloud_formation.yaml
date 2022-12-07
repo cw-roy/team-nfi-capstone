@@ -80,6 +80,10 @@ Resources:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
+          CidrIp: 3.21.237.56/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
           CidrIp: 23.22.14.115/32
         - IpProtocol: tcp
           FromPort: 22
@@ -142,6 +146,10 @@ Resources:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
+          CidrIp: 3.21.237.56/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
           CidrIp: 23.22.14.115/32
         - IpProtocol: tcp
           FromPort: 22
@@ -189,6 +197,10 @@ Resources:
       GroupName: NFIprod
       GroupDescription: "Allow HTTP/HTTPS and SSH inbound and outbound traffic"
       SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 3.21.237.56/32
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
