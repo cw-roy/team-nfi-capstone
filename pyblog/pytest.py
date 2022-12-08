@@ -1,6 +1,7 @@
 import requests
+import os
 
-prod_wp_url = 'http://ec2-3-22-183-132.us-east-2.compute.amazonaws.com:8088'
+prod_wp_url = os.environ.get('WP_HOST') #stored in an env
 
 def test_wp_site():
     r = requests.get(prod_wp_url)
