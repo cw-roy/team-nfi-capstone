@@ -1,8 +1,14 @@
 [servers]
 
+# original servers
 infra ansible_host=ec2-3-21-237-56.us-east-2.compute.amazonaws.com
 staging ansible_host=ec2-18-224-136-98.us-east-2.compute.amazonaws.com
 prod ansible_host=ec2-3-22-183-132.us-east-2.compute.amazonaws.com
+
+# test servers
+# infra ansible_host=ec2-3-145-45-193.us-east-2.compute.amazonaws.com
+# staging ansible_host=ec2-3-22-169-159.us-east-2.compute.amazonaws.com
+# prod ansible_host=ec2-18-222-183-58.us-east-2.compute.amazonaws.com
 
 [all:vars]
 ansible_connection=ssh

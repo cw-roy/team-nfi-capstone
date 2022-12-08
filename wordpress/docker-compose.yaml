@@ -27,6 +27,7 @@ services:
        WORDPRESS_DB_USER: ${WP_USER}
        WORDPRESS_DB_PASSWORD: ${WP_PASS}
        WORDPRESS_DB_NAME: ${WP_DBNAME}
+       WORDPRESS_CONFIG_EXTRA: define( 'WP_ENVIRONMENT_TYPE', 'local' );
 volumes:
     db_data: {}
     wp_html: {}
