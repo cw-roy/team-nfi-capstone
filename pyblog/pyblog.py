@@ -5,14 +5,24 @@ import json
 import sys
 import os
 import pprint
+from dotenv import load_dotenv
+
+load_dotenv()
 
 currenttime = datetime.datetime.now()
 blog_timestamp = datetime.datetime.now().strftime("%c")
 
+wp_user = os.environ.get('WP_USER') #stored in an env
+wp_pass = os.environ.get('WP_PASS') #stored in an env
+wp_url = os.environ.get('WP_HOST') #stored in an env
 
-# wp_user = os.environ.get('WP_USER') #stored in an env
-# wp_pass = os.environ.get('WP_PASS') #stored in an env
-# wp_url = os.environ.get('WP_HOST') #stored in an env
+# Set environ vars 
+# needs to have its own configuration
+# give a wordpress username and password ()
+# needs to read from environ
+# dotenv - package load.env
+# Once dockerized - the image would have a .env
+# set the env var when starting process *****
 
 cli_parser = argparse.ArgumentParser(
     prog = 'WordPress CLI',
