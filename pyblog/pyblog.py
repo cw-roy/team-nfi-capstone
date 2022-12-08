@@ -3,9 +3,7 @@ import datetime
 import argparse
 import sys
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
 
 currenttime = datetime.datetime.now()
 blog_timestamp = datetime.datetime.now().strftime("%c")
