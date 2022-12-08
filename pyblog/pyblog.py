@@ -1,10 +1,8 @@
 import requests
 import datetime
 import argparse
-import json
 import sys
 import os
-import pprint
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -15,14 +13,6 @@ blog_timestamp = datetime.datetime.now().strftime("%c")
 wp_user = os.environ.get('WP_USER') #stored in an env
 wp_pass = os.environ.get('WP_PASS') #stored in an env
 wp_url = os.environ.get('WP_HOST') #stored in an env
-
-# Set environ vars 
-# needs to have its own configuration
-# give a wordpress username and password ()
-# needs to read from environ
-# dotenv - package load.env
-# Once dockerized - the image would have a .env
-# set the env var when starting process *****
 
 cli_parser = argparse.ArgumentParser(
     prog = 'WordPress CLI',
@@ -57,7 +47,6 @@ def format_blog(file):
 
 def blog_post(blog_title, blog_body):
     post_url = wp_url + '/wp-json/wp/v2/posts' 
-    auth = wp_user + ":" + wp_pass
     data = {
         'title': blog_title, 
         'status':'publish', 
@@ -85,7 +74,6 @@ def blog_read():
 
     pyblog_gather_data = r.json()
 
-    link = pyblog_gather_data[0]['link']
     title = pyblog_gather_data[0]['title']['rendered']
     body = pyblog_gather_data[0]['content']['rendered']
     body = body.strip('"\n"')
