@@ -1,0 +1,247 @@
+Resources:
+  NFIinfrastructure2:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0b4577d77dac11b84  # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
+      InstanceType: t2.medium
+      KeyName: NFI
+      SecurityGroupIds:
+        - !Ref NFIinfrastructureSecurityGroup2
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 100
+      Tags:
+        - Key: IEAteam
+          Value: Team-NFI
+
+        - Key: course
+          Value: IEA
+
+        - Key: cohort
+          Value: "8"
+
+        - Key: Name
+          Value: NFIInfra2
+  NFIstaging2:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0b4577d77dac11b84  # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
+      InstanceType: t2.micro
+      KeyName: NFI
+      SecurityGroupIds:
+        - !Ref NFIstagingSecurityGroup2
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 30
+      Tags:
+        - Key: IEAteam
+          Value: Team-NFI
+
+        - Key: course
+          Value: IEA
+
+        - Key: cohort
+          Value: "8"
+
+        - Key: Name
+          Value: NFIStaging2
+  NFIprod2:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0b4577d77dac11b84  # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
+      InstanceType: t2.micro
+      KeyName: NFI
+      SecurityGroupIds:
+        - !Ref NFIprodSecurityGroup2
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 30
+      Tags:
+        - Key: IEAteam
+          Value: Team-NFI
+
+        - Key: course
+          Value: IEA
+
+        - Key: cohort
+          Value: "8"
+
+        - Key: Name
+          Value: NFIProd2
+  NFIinfrastructureSecurityGroup2:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: NFIInfrastructure2
+      GroupDescription: "Allow HTTP/HTTPS and SSH inbound and outbound traffic"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 3.21.237.56/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 23.22.14.115/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 3.226.186.62/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 18.205.88.182/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 44.208.9.76/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 165.225.216.222/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 100.24.177.189/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 174.31.26.222/32
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8080
+          ToPort: 8080
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8085
+          ToPort: 8085
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8088
+          ToPort: 8088
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 9997
+          ToPort: 9997
+          CidrIp: 0.0.0.0/0
+  NFIstagingSecurityGroup2:
+   Type: AWS::EC2::SecurityGroup
+   Properties:
+     GroupName: NFIstaging2
+     GroupDescription: "Allow HTTP/HTTPS and SSH inbound and outbound traffic"
+     SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 3.21.237.56/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 23.22.14.115/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 3.226.186.62/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 18.205.88.182/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 44.208.9.76/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 165.225.216.222/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 100.24.177.189/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 174.31.26.222/32
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8085
+          ToPort: 8085
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8088
+          ToPort: 8088
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 9997
+          ToPort: 9997
+          CidrIp: 0.0.0.0/0
+  NFIprodSecurityGroup2:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: NFIprod2
+      GroupDescription: "Allow HTTP/HTTPS and SSH inbound and outbound traffic"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 3.21.237.56/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 23.22.14.115/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 3.226.186.62/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 18.205.88.182/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 44.208.9.76/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 165.225.216.222/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 100.24.177.189/32
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 174.31.26.222/32
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8085
+          ToPort: 8085
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8088
+          ToPort: 8088
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 9997
+          ToPort: 9997
+          CidrIp: 0.0.0.0/0
