@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Install docker, compose and prerequisites
+  hosts: all
   become: true
   tasks:
     - name: Install dependencies
@@ -42,3 +43,29 @@
         path: /usr/local/bin/docker-compose
         owner: ubuntu
         group: ubuntu
+
+- name: Create a Docker container for Bamboo
+  hosts: infra
+  become: yes
+  tasks:
+    - name: Set docker volume
+      community.docker.docker_volume:
+        name: bambooVolume
+        state: present
+
+    - name: Start docker container for bamboo
+      community.docker.docker_container:
+        name: bamboo
+        image: jrrickerson/capstone-bamboo
+        state: started
+        detach: true
+        restart_policy: always
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - bambooVolume:/var/atlassian/application-data/bamboo
+        groups:
+          - docker
+          - 115
+        ports:
+          - "54663:54663"
+          - "8085:8085"
