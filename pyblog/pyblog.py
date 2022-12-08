@@ -1,10 +1,8 @@
 import requests
 import datetime
 import argparse
-import json
 import sys
 import os
-import pprint
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -49,7 +47,6 @@ def format_blog(file):
 
 def blog_post(blog_title, blog_body):
     post_url = wp_url + '/wp-json/wp/v2/posts' 
-    auth = wp_user + ":" + wp_pass
     data = {
         'title': blog_title, 
         'status':'publish', 
@@ -77,7 +74,6 @@ def blog_read():
 
     pyblog_gather_data = r.json()
 
-    link = pyblog_gather_data[0]['link']
     title = pyblog_gather_data[0]['title']['rendered']
     body = pyblog_gather_data[0]['content']['rendered']
     body = body.strip('"\n"')
