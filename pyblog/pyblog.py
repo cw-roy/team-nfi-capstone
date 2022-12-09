@@ -3,7 +3,11 @@ import datetime
 import argparse
 import sys
 import os
+from requests.auth import HTTPBasicAuth
+from dotenv import load_dotenv
+from pprint import pprint as pprint
 
+load_dotenv()
 
 currenttime = datetime.datetime.now()
 blog_timestamp = datetime.datetime.now().strftime("%c")
@@ -11,6 +15,11 @@ blog_timestamp = datetime.datetime.now().strftime("%c")
 wp_user = os.environ.get("WP_USER")  # stored in an env
 wp_pass = os.environ.get("WP_PASS")  # stored in an env
 wp_url = os.environ.get("WP_HOST")  # stored in an env
+
+# Create authentication portion of request
+
+basic = HTTPBasicAuth(wp_user, wp_pass)
+
 
 cli_parser = argparse.ArgumentParser(
     prog="WordPress CLI",
@@ -40,13 +49,18 @@ def format_blog(file):
 
 def blog_post(blog_title, blog_body):
     post_url = wp_url + "/wp-json/wp/v2/posts"
-    data = {
+
+    rest_method = "POST"
+    url = post_url
+    payload = {
         "title": blog_title,
         "status": "publish",
         "content": blog_body,
     }
-    response = requests.post(url=post_url, auth=(wp_user, wp_pass), data=data)
-    return response
+
+    response = requests.request(rest_method, url, auth=basic, json=payload)
+    pyblog_request_data = response.json()
+    return pyblog_request_data
 
 
 def blog_upload():
@@ -90,7 +104,7 @@ def blog_posts():
 
 
 if args.command == "upload":
-    print(blog_upload())
+    pprint(blog_upload())
 if args.command == "read":
     print(blog_read())
 if args.command == "posts":
