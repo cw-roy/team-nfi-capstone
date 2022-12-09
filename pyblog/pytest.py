@@ -1,6 +1,9 @@
 import requests
 import os
 
+def completely_useless_function():
+    #ignore this completely
+    pass
 
 prod_wp_url = os.environ.get('WP_HOST') #stored in an env
 stage_wp_url = os.environ.get('WP_STAGE') #stored in an env
@@ -21,3 +24,5 @@ def stage_wp_site():
     else:
         print("The Staging Wordpress server may need attention")
 stage_wp_site()
+
+
