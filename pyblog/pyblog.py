@@ -4,10 +4,7 @@ import argparse
 import sys
 import os
 from requests.auth import HTTPBasicAuth
-from dotenv import load_dotenv
 from pprint import pprint as pprint
-
-load_dotenv()
 
 currenttime = datetime.datetime.now()
 blog_timestamp = datetime.datetime.now().strftime("%c")
