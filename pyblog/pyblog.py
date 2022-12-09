@@ -6,6 +6,7 @@ import os
 from requests.auth import HTTPBasicAuth
 from pprint import pprint as pprint
 
+
 currenttime = datetime.datetime.now()
 blog_timestamp = datetime.datetime.now().strftime("%c")
 
@@ -74,9 +75,9 @@ def blog_upload():
 
 
 def blog_read():
-    url = wp_url + "/wp-json/wp/v2/posts?per_page=1"
-    r = requests.get(url)
+    post_url = wp_url + "/wp-json/wp/v2/posts?per_page=1"
 
+    r = requests.get(post_url, auth=basic)
     pyblog_gather_data = r.json()
 
     title = pyblog_gather_data[0]["title"]["rendered"]
