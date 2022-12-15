@@ -1,11 +1,14 @@
-import requests
-import datetime
-import argparse
-import sys
-import os
-from requests.auth import HTTPBasicAuth
-from pprint import pprint as pprint
+#!/bin/env/python3
 
+""" Shane's pyblog cleaned up for Pylint, flake8, black errors"""
+
+import argparse
+import datetime
+import os
+import sys
+import pprint as pp
+import requests
+from requests.auth import HTTPBasicAuth
 
 currenttime = datetime.datetime.now()
 blog_timestamp = datetime.datetime.now().strftime("%c")
@@ -37,17 +40,18 @@ args = cli_parser.parse_args()
 
 
 def format_blog(file):
+    """ Reads a blog post"""
     contents = file.read()
     contents = contents.splitlines()
     blog_title = contents[0]
     blog_body = "\n".join(contents[1:])
     return blog_post(blog_title, blog_body)
-    file.close()
+    # file.close() # unreachable code per Pylint
 
 
 def blog_post(blog_title, blog_body):
+    """ Posts a blog post"""
     post_url = wp_url + "/wp-json/wp/v2/posts"
-
     rest_method = "POST"
     url = post_url
     payload = {
@@ -61,7 +65,9 @@ def blog_post(blog_title, blog_body):
     return pyblog_request_data
 
 
+
 def blog_upload():
+    """ Uses command line input"""
     cli_input = args.file or args.text_input
     if cli_input == "-":
         file = sys.stdin
@@ -75,11 +81,10 @@ def blog_upload():
 
 
 def blog_read():
+    """ Gathers data"""
     post_url = wp_url + "/wp-json/wp/v2/posts?per_page=1"
-
-    r = requests.get(post_url, auth=basic)
-    pyblog_gather_data = r.json()
-
+    req = requests.get(post_url, auth=basic)
+    pyblog_gather_data = req.json()
     title = pyblog_gather_data[0]["title"]["rendered"]
     body = pyblog_gather_data[0]["content"]["rendered"]
     body = body.strip('"\n"')
@@ -87,22 +92,25 @@ def blog_read():
     return f"Title:\n{title}\n\nBody:\n{body}"
 
 
+
+
 def blog_posts():
-    response = requests.get(wp_url + "/wp-json/wp/v2/posts/?_fields=id,title,excerpt")
+    """ Number of posts"""
+    response = requests.get(wp_url + "/wp-json/wp/v2/posts/?_fields=ident,title,excerpt")
     response = response.json()
     num_of_posts = len(response)
     count = 0
     while count < num_of_posts:
-        id = response[count]["id"]
+        ident = response[count]["ident"]
         title = response[count]["title"]["rendered"]
         excerpt = response[count]["excerpt"]["rendered"]
         excerpt = excerpt.replace("<p>", "").replace("</p>", "")
         count += 1
-        print(f'Post {count}: \n ID: {id} \n Title: "{title}" \n Preview: "{excerpt}"')
+        print(f'Post {count}: \n ident: {ident} \n Title: "{title}" \n Preview: "{excerpt}"')
 
 
 if args.command == "upload":
-    pprint(blog_upload())
+    pp(blog_upload())
 if args.command == "read":
     print(blog_read())
 if args.command == "posts":
