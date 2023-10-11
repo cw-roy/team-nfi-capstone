@@ -13,5 +13,5 @@ pyflakes==3.0.1
 pytz==2022.1
 requests==2.31.0
 tomli==2.0.1
-urllib3==1.26.10
+urllib3>=1.26.17
 zope.interface==5.4.0
